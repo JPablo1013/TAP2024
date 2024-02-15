@@ -1,3 +1,48 @@
 .root{
-    -fx-background-image: url('https://media.tenor.com/ZID94nHYqCYAAAAe/sad-rat-crying-rat.png');
+    -fx-background-image: url('https://media.tenor.com/ZID94nHYqCYAAAAe/sad-rat-crying-rat.png'), url('https://sgi-2018.tepexirguez.tecnm.mx/Imagenes/TecNM.jpg');
+    -fx-background-size: 100%, 200px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center, bottom right;
+}
+
+.menu-bar{
+    -fx-background-color: rgba(40, 58, 93, 0.55);
+    -fx-border-color: #71368f;
+    -fx-border-width: 3px;
+}
+
+.menu{
+    -fx-background-color: blue;
+}
+
+.label{
+    -fx-background-color: red;
+    -fx-padding: 10px;
+}
+
+.menu:hover{
+    -fx-background-color: yellow;
+}
+
+.menu:hover{
+    -fx-background-color: #085005;
+    -fx-font-size: 15pt;
+}
+
+.menu-item{
+    -fx-background-color: green;
+    -fx-border-color: black;
+}
+
+.men-item:hover{
+    -fx-background-color: black;
+}
+
+.menu-item label{
+    -fx-text-fill: red;
+}
+
+.menu-item label:hover{
+    -fx-background-color: #000;
+    -fx-text-fill: black;
 }

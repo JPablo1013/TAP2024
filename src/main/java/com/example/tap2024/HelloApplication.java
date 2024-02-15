@@ -1,6 +1,7 @@
 package com.example.tap2024;
 
 import com.example.tap2024.vistas.Calculadora;
+import com.example.tap2024.vistas.CuadroMagico;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ public class HelloApplication extends Application {
 
     private MenuBar mnbPrincipal;
     private Menu mnParcial1, mnParcial2, menSalir;
-    private MenuItem mitCalculadora, mitSalir;
+    private MenuItem mitCalculadora, mitSalir,  mitCuadromagico;
     private BorderPane bdpPanel;
 
     @Override
@@ -39,8 +40,13 @@ public class HelloApplication extends Application {
     private void crearMenu() {
         //primer parcial menu
         mitCalculadora = new MenuItem("Calculadora");
+        mitCalculadora.setOnAction(actionEvent -> new Calculadora());
+        mitCuadromagico = new MenuItem("Cuadromagico");
+        mitCuadromagico.setOnAction(actionEvent -> new CuadroMagico());
         mnParcial1 = new Menu("Primer parcial");
         mnParcial1.getItems().addAll(mitCalculadora);
+        mnParcial1.getItems().addAll(mitCuadromagico);
+
         //menu segundo parcial
         mnParcial2 = new Menu("Segundo parcial");
 

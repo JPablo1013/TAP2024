@@ -1,0 +1,4 @@
+#color-operador{
+
+    -fx-background-color: linear-gradient(rgb(255,255,255), rgb(255,0,0));
+}

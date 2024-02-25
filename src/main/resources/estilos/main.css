@@ -1,8 +1,8 @@
 .root{
-    -fx-background-image: url('https://media.tenor.com/ZID94nHYqCYAAAAe/sad-rat-crying-rat.png'), url('https://sgi-2018.tepexirguez.tecnm.mx/Imagenes/TecNM.jpg');
-    -fx-background-size: 100%, 200px;
+    -fx-background-image: url('https://media.tenor.com/ZID94nHYqCYAAAAe/sad-rat-crying-rat.png'), url('https://media.tenor.com/-pMfQcryj3cAAAAi/explosion-boom.gif');
+    -fx-background-size: 100%, 80%;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: center, bottom right;
+    -fx-background-position: center, center;
 }
 
 .menu-bar{

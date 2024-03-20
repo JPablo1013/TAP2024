@@ -1,10 +1,8 @@
 package com.example.tap2024;
 
-import com.example.tap2024.vistas.Calculadora;
-import com.example.tap2024.vistas.CuadroMagico;
-import com.example.tap2024.vistas.Memorama;
+import com.example.tap2024.modelos.Conexion;
+import com.example.tap2024.vistas.*;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -18,7 +16,7 @@ public class HelloApplication extends Application {
 
     private MenuBar mnbPrincipal;
     private Menu mnParcial1, mnParcial2, menSalir;
-    private MenuItem mitCalculadora, mitSalir,  mitCuadromagico, mitMemorama;
+    private MenuItem mitCalculadora, mitSalir,  mitCuadromagico, mitMemorama, mitEmpleado, mitPista;
     private BorderPane bdpPanel;
 
     @Override
@@ -35,21 +33,34 @@ public class HelloApplication extends Application {
         stage.setMaximized(true);
         stage.show();
 
-        //new Calculadora();
+        Conexion.crearConexion();
     }
 
     private void crearMenu() {
         //primer parcial menu
         mitCalculadora = new MenuItem("Calculadora");
         mitCalculadora.setOnAction(actionEvent -> new Calculadora());
+
         mitCuadromagico = new MenuItem("Cuadromagico");
         mitCuadromagico.setOnAction(actionEvent -> new CuadroMagico());
+
         mitMemorama = new MenuItem("Memorama");
         mitMemorama.setOnAction(actionEvent -> new Memorama());
+
+        mitPista = new MenuItem("Pista");
+        mitPista.setOnAction(actionEvent -> new Pista());
+
         mnParcial1 = new Menu("Primer parcial");
+
+        mitEmpleado = new MenuItem("Empleado Taqueria");
+        mitEmpleado.setOnAction(event -> new EmpleadoTaqueria());
+
+
         mnParcial1.getItems().addAll(mitCalculadora);
         mnParcial1.getItems().addAll(mitCuadromagico);
         mnParcial1.getItems().addAll(mitMemorama);
+        mnParcial1.getItems().addAll(mitPista);
+        mnParcial1.getItems().addAll(mitEmpleado);
 
         //menu segundo parcial
         mnParcial2 = new Menu("Segundo parcial");

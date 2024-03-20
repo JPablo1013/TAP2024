@@ -1,0 +1,19 @@
+.root{
+    -fx-background-image: url('https://media1.tenor.com/m/mcPlflbf1p0AAAAC/monkey-deal-with-it.gif');
+    -fx-background-size: 10%, 80%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: top left;
+    -fx-background-color: rgba(121, 196, 174, 0.64);
+    -fx-font-family: "Eras Medium ITC";
+}
+
+.menu-bar{
+    -fx-background-color: rgba(40, 58, 93, 0.55);
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+}
+
+.menu{
+    -fx-background-color: rgba(0, 0, 255, 0);
+}
+

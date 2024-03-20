@@ -9,8 +9,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class CuadroMagico extends Stage {
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
+public class CuadroMagico extends Stage {
+    private RandomAccessFile file; //creamos el acceso aleatoriio
     private Scene escena;
 
     private GridPane gridPane;
@@ -73,11 +76,21 @@ public class CuadroMagico extends Stage {
     }
 
     private void generarCuadroMagico(int size) {
+        try {
+            // Abrir el archivo para escritura
+            file = new RandomAccessFile("cuadro_magico.dat", "rw");
+
+            // Limpiar el archivo si ya existe
+            file.setLength(0);
+            /*
         if (!gridPane.getChildren().isEmpty()) {
             gridPane.getChildren().clear();
-        }
+
 
         StringBuilder cuadroMagicoTexto = new StringBuilder();
+        int[][] cuadro = new int[size][size];
+        }*/
+
         int[][] cuadro = new int[size][size];
 
         int num = 1;
@@ -106,7 +119,7 @@ public class CuadroMagico extends Stage {
                 col--;
             }
         }
-
+        /*
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 cuadroMagicoTexto.append(cuadro[i][j]).append("\t");
@@ -116,7 +129,51 @@ public class CuadroMagico extends Stage {
             }
             cuadroMagicoTexto.append("\n");
         }
+
+         */
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    // Escribir cada número en el archivo
+                    file.writeInt(cuadro[i][j]);
+                }
+            }
+
+            // Cerrar el archivo después de escribir los datos
+            file.close();
+
+            // Leer los datos del archivo y mostrarlos en la interfaz gráfica
+            leerYMostrarCuadroMagico(size);
+
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Error al acceder al archivo.");
+        }
     }
+
+    private void leerYMostrarCuadroMagico(int size) {
+        try {
+            // Abrir el archivo para lectura
+            file = new RandomAccessFile("cuadro_magico.dat", "r");
+
+            gridPane.getChildren().clear();
+
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    // Leer cada número del archivo y mostrarlo en la interfaz gráfica
+                    int num = file.readInt();
+                    Label label = new Label(String.valueOf(num));
+                    label.setFont(Font.font(16));
+                    gridPane.add(label, j, i + 2);
+                }
+            }
+
+            // Cerrar el archivo después de leer los datos
+            file.close();
+
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Error al acceder al archivo.");
+        }
+    }
+
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
